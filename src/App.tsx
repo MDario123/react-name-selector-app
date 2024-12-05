@@ -1,33 +1,40 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import { babyNames } from "./assets/data";
 
-function App() {
-  const [count, setCount] = useState(0);
+function NameCard() {
+  const rand = () => babyNames[Math.floor(Math.random() * babyNames.length)];
+  let [babyName, setName] = useState(rand());
+  let [toRotate, setToRotate] = useState("uwuntu");
+  let [isShowingFront, setIsShowingFront] = useState(true);
+
+  const flipCard = () => {
+    setToRotate(isShowingFront ? "card--back" : "card--front");
+    setIsShowingFront(!isShowingFront);
+  };
 
   return (
+    <div className={"card " + toRotate}>
+      <div className="frontSide">
+        <div className="name">{babyName.name}</div>
+        <div className="cardButtons">
+          <button onClick={() => setName(rand())}>Reject</button>
+          <button onClick={() => setName(rand())}>Maybe</button>
+          <button onClick={() => setName(rand())}>Accept</button>
+        </div>
+      </div>
+      <div className="backSide">
+        <p className="content">{babyName.etimology}</p>
+      </div>
+      <div className="cornerIndicator" onClick={() => flipCard()} />
+    </div>
+  );
+}
+
+function App() {
+  return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <NameCard />
     </>
   );
 }
