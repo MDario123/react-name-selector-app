@@ -1,64 +1,59 @@
 import { useState } from "react";
 import "./App.css";
 import { babyNames } from "./assets/data";
+import { NameCard, NameCardProps } from "./components/NameCard";
+import { AnimatePresence } from "motion/react";
 
-let acceptedNames = [];
-
-function NameCard() {
-  const rand = () => Math.floor(Math.random() * babyNames.length);
-  let [babyNameIndex, setBabyNameIndex] = useState(rand());
-  let [toRotate, setToRotate] = useState("uwuntu");
-  let [isShowingFront, setIsShowingFront] = useState(true);
-
-  const deleteName = (idx: number) => {
-    let lastIdx = babyNames.length - 1;
-    [babyNames[idx], babyNames[lastIdx]] = [babyNames[lastIdx], babyNames[idx]];
-    babyNames.pop();
-  };
-
-  const flipCard = () => {
-    setToRotate(isShowingFront ? "card--back" : "card--front");
-    setIsShowingFront(!isShowingFront);
-  };
-
-  return (
-    <div className={"card " + toRotate}>
-      <div className="frontSide">
-        <div className="name">{babyNames[babyNameIndex].name}</div>
-        <div className="cardButtons">
-          <button
-            onClick={() => {
-              deleteName(babyNameIndex);
-              setBabyNameIndex(rand());
-            }}
-          >
-            Reject
-          </button>
-          <button onClick={() => setBabyNameIndex(rand())}>Maybe</button>
-          <button
-            onClick={() => {
-              acceptedNames.push(babyNames[babyNameIndex]);
-              deleteName(babyNameIndex);
-              setBabyNameIndex(rand());
-            }}
-          >
-            Accept
-          </button>
-        </div>
-      </div>
-      <div className="backSide">
-        <p className="content">{babyNames[babyNameIndex].etimology}</p>
-      </div>
-      <div className="cornerIndicator" onClick={() => flipCard()} />
-    </div>
-  );
+function Show() {
+  return null;
 }
 
 function App() {
+  let [availableNames, setAvailableNames] = useState(babyNames);
+  let [acceptedNames, setAcceptedNames] = useState(babyNames);
+  let [view, setView] = useState("");
+
+  let card = <div>No more names available.</div>;
+  if (availableNames.length > 0) {
+    const name = availableNames[availableNames.length - 1];
+
+    const no = () => setAvailableNames((prev) => [...prev.slice(0, -1)]);
+    const yes = () => {
+      setAcceptedNames((prev) => [...prev, name]);
+      setAvailableNames((prev) => [...prev.slice(0, -1)]);
+    };
+    const maybe = () => {
+      setAvailableNames((prev) => {
+        const idx = Math.floor(Math.random() * prev.length);
+        [prev[idx], prev[prev.length - 1]] = [prev[prev.length - 1], prev[idx]];
+        return [...prev];
+      });
+    };
+
+    let nameCardProps: NameCardProps = {
+      name,
+      no,
+      yes,
+      maybe,
+    };
+    card = <NameCard key={nameCardProps.name.name} {...nameCardProps} />;
+  }
+
   return (
-    <>
-      <NameCard />
-    </>
+    <div className={"app " + view}>
+      <div className="choose">
+        <div className="cardSlot">
+          <AnimatePresence>{card}</AnimatePresence>
+        </div>
+        <button
+          className="viewChanger"
+          onClick={() => setView(view == "show" ? "choose" : "show")}
+        >
+          See accepted
+        </button>
+      </div>
+      <Show />
+    </div>
   );
 }
 

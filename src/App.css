@@ -1,31 +1,58 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body {
+  background-color: #1e1e2e;
+  justify-content: center;
+}
+
+.app {
+  height: 100%;
+  width: 100%;
+
+  .choose {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.cardSlot {
+  max-height: 80vh;
+  height: 450px;
+
+  max-width: 80vw;
+  width: 300px;
+
+  align-self: center;
+  justify-self: center;
+  display: grid;
+
+  background-color: #181825;
+  border-radius: 10px;
+}
+
+.cardSlot>* {
+  grid-area: 1 / 1;
+}
+
+.viewChanger {
+  /* position: absolute; */
+
+  align-self: center;
+  margin-top: 30px;
 }
 
 .card {
-  height: 28rem;
-  width: 20rem;
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+
   display: grid;
   transform-style: preserve-3d;
-
-  &.card--front {
-    animation: cardFlip 0.275s forwards linear;
-  }
-
-  &.card--back {
-    animation: cardUnFlip 0.275s forwards linear;
-  }
 
   .cornerIndicator {
     width: 0;
     height: 0;
     border-left: 25px solid transparent;
     border-top: 25px solid red;
-    border-top-right-radius: 10px;
-    backface-visibility: visible;
+    border-top-right-radius: inherit;
 
     justify-self: end;
     align-self: start;
@@ -41,17 +68,40 @@
   height: 100%;
   width: 100%;
   background-color: blanchedalmond;
+  border-radius: inherit;
+
   display: grid;
+
   backface-visibility: hidden;
 
-  border-radius: 10px;
-
   .name {
+    margin-top: 3rem;
     align-self: start;
     justify-self: center;
     font-size: 56px;
     font-weight: 700;
     color: black;
+  }
+
+  .cardButtons {
+    width: 100%;
+
+    align-self: end;
+    margin-bottom: 1rem;
+
+    display: flex;
+    flex: auto;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .stamp {
+    height: 12rem;
+    width: 16rem;
+    visibility: hidden;
+    opacity: 0%;
+    align-self: center;
+    justify-self: center;
   }
 }
 
@@ -59,55 +109,15 @@
   height: 100%;
   width: 100%;
   background-color: blanchedalmond;
+  border-radius: inherit;
+
   display: grid;
   backface-visibility: hidden;
   transform: rotateY(180deg);
-
-  border-radius: 10px;
 
   .content {
     color: black;
     align-self: start;
     justify-self: center;
-  }
-}
-
-.cardButtons {
-  width: 100%;
-
-  align-self: end;
-  margin-bottom: 1rem;
-
-  display: flex;
-  flex: auto;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-@keyframes cardUnFlip {
-  0% {
-    transform: rotateZ(0deg) rotateY(0deg);
-  }
-
-  50% {
-    transform: rotateZ(-10deg) rotateY(90deg);
-  }
-
-  100% {
-    transform: rotateZ(0deg) rotateY(180deg);
-  }
-}
-
-@keyframes cardFlip {
-  0% {
-    transform: rotateZ(0deg) rotateY(180deg);
-  }
-
-  50% {
-    transform: rotateZ(-10deg) rotateY(90deg);
-  }
-
-  100% {
-    transform: rotateZ(0deg) rotateY(0deg);
   }
 }
