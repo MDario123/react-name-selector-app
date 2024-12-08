@@ -4,13 +4,44 @@ body {
 }
 
 .app {
-  height: 100%;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
 
   .choose {
+    height: 100vh;
+
     display: flex;
     flex-direction: column;
+    justify-content: center;
   }
+}
+
+.show {
+  max-width: 1080px;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.acceptedName {
+  margin: 10px;
+  padding: 0 10px;
+  background-color: blanchedalmond;
+  min-width: 5em;
+  width: 80%;
+
+  border: 2px solid red;
+  border-radius: 10px;
+
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+  color: black;
 }
 
 .cardSlot {

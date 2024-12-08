@@ -1,17 +1,13 @@
 import { useState } from "react";
 import "./App.css";
-import { babyNames } from "./assets/data";
+import { BabyName, babyNames } from "./assets/data";
 import { NameCard, NameCardProps } from "./components/NameCard";
 import { AnimatePresence } from "motion/react";
+import { AcceptedNames } from "./components/AcceptedNames";
 
-function Show() {
-  return null;
-}
-
-function App() {
+export default function App() {
   let [availableNames, setAvailableNames] = useState(babyNames);
-  let [acceptedNames, setAcceptedNames] = useState(babyNames);
-  let [view, setView] = useState("");
+  let [acceptedNames, setAcceptedNames] = useState<BabyName[]>([]);
 
   let card = <div>No more names available.</div>;
   if (availableNames.length > 0) {
@@ -40,21 +36,13 @@ function App() {
   }
 
   return (
-    <div className={"app " + view}>
+    <div className="app ">
       <div className="choose">
         <div className="cardSlot">
           <AnimatePresence>{card}</AnimatePresence>
         </div>
-        <button
-          className="viewChanger"
-          onClick={() => setView(view == "show" ? "choose" : "show")}
-        >
-          See accepted
-        </button>
       </div>
-      <Show />
+      <AcceptedNames names={acceptedNames} />
     </div>
   );
 }
-
-export default App;
