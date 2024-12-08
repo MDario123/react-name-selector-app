@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./App.css";
 import { BabyName, babyNames } from "./assets/data";
-import { NameCard, NameCardProps } from "./components/NameCard";
+import { NameCard, NameCardProps } from "./components/NameCard/NameCard";
 import { AnimatePresence } from "motion/react";
-import { AcceptedNames } from "./components/AcceptedNames";
+import { AcceptedNames } from "./components/AcceptedNames/AcceptedNames";
 
 export default function App() {
   let [availableNames, setAvailableNames] = useState(babyNames);

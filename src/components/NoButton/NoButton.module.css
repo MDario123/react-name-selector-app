@@ -1,0 +1,19 @@
+.no {
+  opacity: 0.5;
+  color: black;
+
+  &:hover {
+    opacity: 1;
+    color: red;
+  }
+
+  &:active {
+    opacity: 1;
+    color: red;
+  }
+
+  transition:
+    scale 0.2s,
+    opacity 0.2s,
+    color 0.2s;
+}

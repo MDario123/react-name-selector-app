@@ -3,6 +3,33 @@ body {
   justify-content: center;
 }
 
+.but {
+  &:hover {
+    scale: 1.1;
+  }
+
+  &:active {
+    scale: 0.9;
+  }
+
+  transition: scale 0.2s;
+}
+
+.cardButton {
+  height: 80px;
+  width: 80px;
+  padding: 0;
+  margin: 15px;
+  background: none;
+  border: none;
+}
+
+.buttonIcon {
+  height: 100%;
+  width: 100%;
+  border: none;
+}
+
 .app {
   display: flex;
   flex-direction: column;
@@ -14,35 +41,6 @@ body {
     flex-direction: column;
     justify-content: center;
   }
-}
-
-.show {
-  max-width: 1080px;
-  width: 100vw;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.acceptedName {
-  margin: 10px;
-  padding: 0 10px;
-  background-color: blanchedalmond;
-  min-width: 5em;
-  max-width: 7em;
-  width: 80%;
-
-  border: 2px solid red;
-  border-radius: 10px;
-
-  text-align: center;
-  font-size: 40px;
-  font-weight: 700;
-  color: black;
 }
 
 .cardSlot {
@@ -62,95 +60,4 @@ body {
 
 .cardSlot > * {
   grid-area: 1 / 1;
-}
-
-.card {
-  height: 100%;
-  width: 100%;
-  border-radius: inherit;
-
-  display: grid;
-  transform-style: preserve-3d;
-
-  .cornerIndicator {
-    width: 0;
-    height: 0;
-    border-left: 25px solid transparent;
-    border-top: 25px solid red;
-    border-top-right-radius: inherit;
-
-    justify-self: end;
-    align-self: start;
-  }
-}
-
-.card > * {
-  grid-area: 1 / 1;
-  transform-style: preserve-3d;
-}
-
-.card .frontSide {
-  height: 100%;
-  width: 100%;
-  background-color: blanchedalmond;
-  border-radius: inherit;
-
-  display: grid;
-
-  backface-visibility: hidden;
-
-  .name {
-    margin-top: 3rem;
-    align-self: start;
-    justify-self: center;
-    font-size: 56px;
-    font-weight: 700;
-    color: black;
-  }
-
-  .cardButtons {
-    width: 100%;
-
-    align-self: end;
-
-    display: flex;
-    flex: auto;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-}
-
-.cardButton {
-  height: 80px;
-  width: 80px;
-  padding: 0;
-  margin: 15px;
-  background: none;
-  border: none;
-}
-
-.buttonIcon {
-  height: 100%;
-  width: 100%;
-  border: none;
-}
-
-.card .backSide {
-  height: 100%;
-  width: 100%;
-  background-color: blanchedalmond;
-  border-radius: inherit;
-
-  display: grid;
-  backface-visibility: hidden;
-  transform: rotateY(180deg);
-
-  .content {
-    color: black;
-    align-self: start;
-    justify-self: center;
-
-    padding: 10px;
-    text-align: center;
-  }
 }

@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { BabyName } from "../assets/data";
+import { BabyName } from "../../assets/data";
 import { motion } from "motion/react";
-import { NoIcon } from "./NoIcon";
-import { YesIcon } from "./YesIcon";
-import { MaybeIcon } from "./MaybeIcon";
+import { NoButton } from "../NoButton/NoButton";
+import { MaybeButton } from "../MaybeButton/MaybeButton";
+import { YesButton } from "../YesButton/YesButton";
+import styles from "./NameCard.module.css";
 
 export interface NameCardProps {
   name: BabyName;
@@ -89,91 +90,39 @@ export function NameCard({ name, yes, no, maybe }: NameCardProps) {
   };
 
   return (
-    <motion.div className="card" animate={facing} exit={choice} variants={card}>
-      <div className="frontSide">
-        <div className="name">{name.name}</div>
-        <div className="cardButtons">
-          <motion.button
-            className="cardButton"
+    <motion.div
+      className={styles.card}
+      animate={facing}
+      exit={choice}
+      variants={card}
+    >
+      <div className={styles.frontSide}>
+        <div className={styles.name}>{name.name}</div>
+        <div className={styles.cardButtons}>
+          <NoButton
             onClick={() => {
               setChoice("no");
               no();
             }}
-            initial={{
-              scale: 1,
-              opacity: 0.5,
-              color: "black",
-            }}
-            whileHover={{
-              scale: 1.1,
-              opacity: 1,
-              color: "red",
-              transition: {},
-            }}
-            whileTap={{
-              scale: 0.9,
-              opacity: 1,
-              color: "red",
-            }}
-          >
-            <NoIcon className="buttonIcon" />
-          </motion.button>
-          <motion.button
-            className="cardButton"
+          />
+          <MaybeButton
             onClick={() => {
               setChoice("maybe");
               maybe();
             }}
-            initial={{
-              scale: 1,
-              opacity: 0.5,
-              color: "black",
-            }}
-            whileHover={{
-              scale: 1.1,
-              opacity: 1,
-              color: "red",
-              transition: {},
-            }}
-            whileTap={{
-              scale: 0.9,
-              opacity: 1,
-              color: "red",
-            }}
-          >
-            <MaybeIcon className="buttonIcon" />
-          </motion.button>
-          <motion.button
-            className="cardButton"
+          />
+          <YesButton
             onClick={() => {
               setChoice("yes");
               yes();
             }}
-            initial={{
-              scale: 1,
-              opacity: 0.5,
-              color: "black",
-            }}
-            whileHover={{
-              scale: 1.1,
-              opacity: 1,
-              color: "green",
-              transition: {},
-            }}
-            whileTap={{
-              scale: 0.9,
-              opacity: 1,
-              color: "green",
-            }}
-          >
-            <YesIcon className="buttonIcon" />
-          </motion.button>
+          />
         </div>
       </div>
-      <div className="backSide">
-        <p className="content">{name.etimology}</p>
+      <div className={styles.backSide}>
+        <p className={styles.content}>{name.etimology}</p>
       </div>
-      <div className="cornerIndicator" onClick={() => toggleFacing()} />
+      <div className={styles.cornerIndicator} onClick={() => toggleFacing()} />
     </motion.div>
   );
 }

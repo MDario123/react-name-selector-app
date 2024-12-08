@@ -1,0 +1,19 @@
+.yes {
+  opacity: 0.5;
+  color: black;
+
+  &:hover {
+    opacity: 1;
+    color: green;
+  }
+
+  &:active {
+    opacity: 1;
+    color: green;
+  }
+
+  transition:
+    scale 0.2s,
+    opacity 0.2s,
+    color 0.2s;
+}
