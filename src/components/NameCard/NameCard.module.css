@@ -9,8 +9,8 @@
   .cornerIndicator {
     width: 0;
     height: 0;
-    border-left: 25px solid transparent;
-    border-top: 25px solid red;
+    /* border-left: 35px solid transparent; */
+    /* border-top: 35px solid #50a2a7; */
     border-top-right-radius: inherit;
 
     justify-self: end;

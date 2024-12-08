@@ -95,6 +95,7 @@ export function NameCard({ name, yes, no, maybe }: NameCardProps) {
       animate={facing}
       exit={choice}
       variants={card}
+      onClick={() => toggleFacing()}
     >
       <div className={styles.frontSide}>
         <div className={styles.name}>{name.name}</div>
@@ -122,7 +123,7 @@ export function NameCard({ name, yes, no, maybe }: NameCardProps) {
       <div className={styles.backSide}>
         <p className={styles.content}>{name.etimology}</p>
       </div>
-      <div className={styles.cornerIndicator} onClick={() => toggleFacing()} />
+      <div className={styles.cornerIndicator} />
     </motion.div>
   );
 }

@@ -16,15 +16,11 @@
   background-color: blanchedalmond;
   width: 6em;
 
-  border: 2px solid red;
+  border: none;
   border-radius: 10px;
 
   text-align: center;
   font-size: 40px;
   font-weight: 700;
   color: black;
-
-  &:hover {
-    border: 2px solid red;
-  }
 }

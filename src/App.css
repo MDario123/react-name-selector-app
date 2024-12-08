@@ -12,7 +12,7 @@ body {
     scale: 0.9;
   }
 
-  transition: scale 0.2s;
+  transition: scale 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .cardButton {
