@@ -13,7 +13,22 @@ export function AcceptedNames({ names: namesx }: { names: BabyName[] }) {
       </h2>
       <ul className="show">
         {names.map((name) => (
-          <li key={name} className="acceptedName">
+          <li
+            key={name}
+            className="acceptedName"
+            onClick={async () => {
+              const shareData = {
+                title: "UWU",
+                text: name,
+                url: "uwu.com",
+              };
+              try {
+                await navigator.share(shareData);
+              } catch (err) {
+                alert(err);
+              }
+            }}
+          >
             {name}
           </li>
         ))}
