@@ -11,7 +11,7 @@ export function YesButton({ onClick }: { onClick: () => void }) {
         width="800px"
         height="800px"
         viewBox="0 0 24 24"
-        enable-background="new 0 0 24 24"
+        enableBackground="new 0 0 24 24"
         className="buttonIcon"
       >
         <g>

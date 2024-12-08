@@ -17,7 +17,7 @@ export function NoButton({ onClick }: { onClick: () => void }) {
           r="130"
           fill="transparent"
           stroke="currentColor"
-          stroke-width="25"
+          strokeWidth="25"
         />
 
         <line
@@ -26,8 +26,8 @@ export function NoButton({ onClick }: { onClick: () => void }) {
           y1="93.3"
           y2="206.7"
           stroke="currentColor"
-          stroke-width="25"
-          stroke-linecap="round"
+          strokeWidth="25"
+          strokeLinecap="round"
         />
         <line
           x1="206.7"
@@ -35,8 +35,8 @@ export function NoButton({ onClick }: { onClick: () => void }) {
           y1="93.3"
           y2="206.7"
           stroke="currentColor"
-          stroke-width="25"
-          stroke-linecap="round"
+          strokeWidth="25"
+          strokeLinecap="round"
         />
       </svg>
     </button>

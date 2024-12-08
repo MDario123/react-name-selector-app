@@ -10,7 +10,7 @@ export function MaybeButton({ onClick }: { onClick: () => void }) {
         width="800px"
         height="800px"
         viewBox="0 0 24 24"
-        enable-background="new 0 0 24 24"
+        enableBackground="new 0 0 24 24"
         className="buttonIcon"
       >
         <g>
@@ -18,10 +18,10 @@ export function MaybeButton({ onClick }: { onClick: () => void }) {
             <g>
               <path
                 stroke="black"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-miterlimit="10"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeMiterlimit="10"
                 d="M21.3,13"
               />
             </g>
@@ -50,10 +50,10 @@ export function MaybeButton({ onClick }: { onClick: () => void }) {
             <g>
               <path
                 stroke="black"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-miterlimit="10"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeMiterlimit="10"
                 d="M2.7,11"
               />
             </g>
