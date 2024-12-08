@@ -9,7 +9,19 @@ export default function App() {
   let [availableNames, setAvailableNames] = useState(babyNames);
   let [acceptedNames, setAcceptedNames] = useState<BabyName[]>([]);
 
-  let card = <div>No more names available.</div>;
+  let card = (
+    <div
+      style={{
+        textAlign: "center",
+        alignSelf: "center",
+        fontSize: 22,
+      }}
+    >
+      No more names available.
+      <br />
+      You can scroll down to see the names you accepted.
+    </div>
+  );
   if (availableNames.length > 0) {
     const name = availableNames[availableNames.length - 1];
 
