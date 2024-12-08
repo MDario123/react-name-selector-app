@@ -1,6 +1,7 @@
 body {
   background-color: #1e1e2e;
   justify-content: center;
+  overflow-x: hidden;
 }
 
 .but {

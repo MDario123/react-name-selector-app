@@ -34,8 +34,7 @@
   backface-visibility: hidden;
 
   .name {
-    margin-top: 3rem;
-    align-self: start;
+    align-self: center;
     justify-self: center;
     font-size: 56px;
     font-weight: 700;
