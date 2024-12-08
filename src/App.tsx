@@ -4,6 +4,7 @@ import { BabyName, babyNames } from "./assets/data";
 import { NameCard, NameCardProps } from "./components/NameCard/NameCard";
 import { AnimatePresence } from "motion/react";
 import { AcceptedNames } from "./components/AcceptedNames/AcceptedNames";
+import { Arrow } from "./components/Arrow/Arrow";
 
 export default function App() {
   let [availableNames, setAvailableNames] = useState(babyNames);
@@ -48,11 +49,12 @@ export default function App() {
   }
 
   return (
-    <div className="app ">
+    <div className="app">
       <div className="choose">
         <div className="cardSlot">
           <AnimatePresence>{card}</AnimatePresence>
         </div>
+        <Arrow />
       </div>
       <AcceptedNames names={acceptedNames} />
     </div>

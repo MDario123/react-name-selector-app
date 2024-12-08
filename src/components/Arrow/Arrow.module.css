@@ -1,0 +1,9 @@
+.arrow {
+  position: absolute;
+  bottom: 10px;
+  transform: translate(calc(50vw - 50%), 0);
+  height: 30px;
+  width: 60px;
+  color: white;
+  opacity: 20%;
+}
