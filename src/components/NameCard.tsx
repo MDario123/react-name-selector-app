@@ -89,7 +89,6 @@ export function NameCard({ name, yes, no, maybe }: NameCardProps) {
     <motion.div className="card" animate={facing} exit={choice} variants={card}>
       <div className="frontSide">
         <div className="name">{name.name}</div>
-        <img className="stamp" src="/public/redApprovedStamp.png" />
         <div className="cardButtons">
           <button
             onClick={() => {

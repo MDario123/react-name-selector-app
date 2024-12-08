@@ -19,9 +19,9 @@ body {
 .show {
   max-width: 1080px;
   width: 100vw;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 
   list-style-type: none;
   margin: 0;
@@ -33,6 +33,7 @@ body {
   padding: 0 10px;
   background-color: blanchedalmond;
   min-width: 5em;
+  max-width: 7em;
   width: 80%;
 
   border: 2px solid red;
@@ -46,10 +47,10 @@ body {
 
 .cardSlot {
   max-height: 80vh;
-  height: 450px;
+  height: 500px;
 
   max-width: 80vw;
-  width: 300px;
+  width: 330px;
 
   align-self: center;
   justify-self: center;
@@ -59,15 +60,8 @@ body {
   border-radius: 10px;
 }
 
-.cardSlot>* {
+.cardSlot > * {
   grid-area: 1 / 1;
-}
-
-.viewChanger {
-  /* position: absolute; */
-
-  align-self: center;
-  margin-top: 30px;
 }
 
 .card {
@@ -90,7 +84,7 @@ body {
   }
 }
 
-.card>* {
+.card > * {
   grid-area: 1 / 1;
   transform-style: preserve-3d;
 }
@@ -125,15 +119,6 @@ body {
     flex-direction: row;
     justify-content: space-around;
   }
-
-  .stamp {
-    height: 12rem;
-    width: 16rem;
-    visibility: hidden;
-    opacity: 0%;
-    align-self: center;
-    justify-self: center;
-  }
 }
 
 .card .backSide {
@@ -150,5 +135,8 @@ body {
     color: black;
     align-self: start;
     justify-self: center;
+
+    padding: 10px;
+    text-align: center;
   }
 }
