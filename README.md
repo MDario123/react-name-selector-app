@@ -3,4 +3,4 @@ npm install
 npm run dev
 ```
 
-[Try it](http://localhost:5173).
+[Try it](https://nameselectormdario.cubancore.com/).
