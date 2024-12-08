@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { BabyName } from "../assets/data";
 import { motion } from "motion/react";
+import { NoIcon } from "./NoIcon";
+import { YesIcon } from "./YesIcon";
+import { MaybeIcon } from "./MaybeIcon";
 
 export interface NameCardProps {
   name: BabyName;
@@ -28,7 +31,7 @@ const card = {
     transition: {
       duration: 0.4,
       times: [0, 0.5, 1],
-      ease: "linear",
+      ease: "easeOut",
     },
   },
   back: {
@@ -40,7 +43,7 @@ const card = {
     transition: {
       duration: 0.4,
       times: [0, 0.5, 1],
-      ease: "linear",
+      ease: "easeOut",
     },
   },
   yes: {
@@ -90,30 +93,81 @@ export function NameCard({ name, yes, no, maybe }: NameCardProps) {
       <div className="frontSide">
         <div className="name">{name.name}</div>
         <div className="cardButtons">
-          <button
+          <motion.button
+            className="cardButton"
             onClick={() => {
               setChoice("no");
               no();
             }}
+            initial={{
+              scale: 1,
+              opacity: 0.5,
+              color: "black",
+            }}
+            whileHover={{
+              scale: 1.1,
+              opacity: 1,
+              color: "red",
+              transition: {},
+            }}
+            whileTap={{
+              scale: 0.9,
+              opacity: 1,
+              color: "red",
+            }}
           >
-            Reject
-          </button>
-          <button
+            <NoIcon className="buttonIcon" />
+          </motion.button>
+          <motion.button
+            className="cardButton"
             onClick={() => {
               setChoice("maybe");
               maybe();
             }}
+            initial={{
+              scale: 1,
+              opacity: 0.5,
+              color: "black",
+            }}
+            whileHover={{
+              scale: 1.1,
+              opacity: 1,
+              color: "red",
+              transition: {},
+            }}
+            whileTap={{
+              scale: 0.9,
+              opacity: 1,
+              color: "red",
+            }}
           >
-            ¯\_(ツ)_/¯
-          </button>
-          <button
+            <MaybeIcon className="buttonIcon" />
+          </motion.button>
+          <motion.button
+            className="cardButton"
             onClick={() => {
               setChoice("yes");
               yes();
             }}
+            initial={{
+              scale: 1,
+              opacity: 0.5,
+              color: "black",
+            }}
+            whileHover={{
+              scale: 1.1,
+              opacity: 1,
+              color: "green",
+              transition: {},
+            }}
+            whileTap={{
+              scale: 0.9,
+              opacity: 1,
+              color: "green",
+            }}
           >
-            Accept
-          </button>
+            <YesIcon className="buttonIcon" />
+          </motion.button>
         </div>
       </div>
       <div className="backSide">

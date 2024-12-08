@@ -112,13 +112,27 @@ body {
     width: 100%;
 
     align-self: end;
-    margin-bottom: 1rem;
 
     display: flex;
     flex: auto;
     flex-direction: row;
     justify-content: space-around;
   }
+}
+
+.cardButton {
+  height: 80px;
+  width: 80px;
+  padding: 0;
+  margin: 15px;
+  background: none;
+  border: none;
+}
+
+.buttonIcon {
+  height: 100%;
+  width: 100%;
+  border: none;
 }
 
 .card .backSide {
