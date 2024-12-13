@@ -3,4 +3,4 @@ npm install
 npm run dev
 ```
 
-[Try it](https://nameselectormdario.cubancore.com/).
+[Try it](https://MDario123.github.io/react-name-selector-app/).
